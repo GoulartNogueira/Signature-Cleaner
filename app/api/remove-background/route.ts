@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.PHOTOROOM_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: 'Chave da API Photoroom não configurada' },
+        { error: 'Chave da API não configurada' },
         { status: 500 }
       );
     }
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       const errorText = await response.text();
       console.error('Photoroom API error:', errorText);
       return NextResponse.json(
-        { error: 'Falha ao processar imagem com a API Photoroom' },
+        { error: 'Falha ao processar imagem' },
         { status: response.status }
       );
     }
