@@ -6,10 +6,10 @@ export default function Home() {
       <main className="w-full max-w-2xl">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">
-            Signature Cleaner
+            Limpador de Assinatura
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            Remove background from your handmade signatures
+            Remova o fundo das suas assinaturas feitas à mão
           </p>
         </div>
         <ImageUploader />

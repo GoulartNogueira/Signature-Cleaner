@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
 
     if (!imageFile) {
       return NextResponse.json(
-        { error: 'No image file provided' },
+        { error: 'Nenhum arquivo de imagem fornecido' },
         { status: 400 }
       );
     }
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.PHOTOROOM_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: 'Photoroom API key not configured' },
+        { error: 'Chave da API não configurada' },
         { status: 500 }
       );
     }
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
       const errorText = await response.text();
       console.error('Photoroom API error:', errorText);
       return NextResponse.json(
-        { error: 'Failed to process image with Photoroom API' },
+        { error: 'Falha ao processar imagem' },
         { status: response.status }
       );
     }
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error processing image:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Erro interno do servidor' },
       { status: 500 }
     );
   }
