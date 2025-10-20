@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Signature Cleaner",
-  description: "Remove background from handmade signatures",
+  title: "Limpador de Assinatura",
+  description: "Remova o fundo de assinaturas feitas à mão",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className="antialiased">
         {children}
       </body>

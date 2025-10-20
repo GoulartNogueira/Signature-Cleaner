@@ -67,15 +67,15 @@ export default function ImageUploader() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ error: 'Failed to process image' }));
-        throw new Error(errorData.error || 'Failed to process image');
+        const errorData = await response.json().catch(() => ({ error: 'Falha ao processar imagem' }));
+        throw new Error(errorData.error || 'Falha ao processar imagem');
       }
 
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       setProcessedImageUrl(url);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'Ocorreu um erro');
     } finally {
       setIsProcessing(false);
     }
@@ -127,10 +127,10 @@ export default function ImageUploader() {
             />
           </svg>
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
-            Click to upload or drag and drop
+            Clique para enviar ou arraste e solte
           </p>
           <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-            PNG, JPG, GIF up to 10MB
+            PNG, JPG, GIF até 10MB
           </p>
           <input
             ref={fileInputRef}
@@ -155,7 +155,7 @@ export default function ImageUploader() {
                 {previewUrl && (
                   <img
                     src={previewUrl}
-                    alt="Original signature"
+                    alt="Assinatura original"
                     className="w-full h-64 object-contain"
                   />
                 )}
@@ -165,18 +165,18 @@ export default function ImageUploader() {
             {/* Processed Image */}
             <div>
               <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                Processed
+                Processada
               </h3>
               <div className="border border-gray-300 dark:border-gray-600 rounded-lg overflow-hidden bg-gray-50 dark:bg-gray-700 bg-[linear-gradient(45deg,#e5e7eb_25%,transparent_25%,transparent_75%,#e5e7eb_75%,#e5e7eb),linear-gradient(45deg,#e5e7eb_25%,transparent_25%,transparent_75%,#e5e7eb_75%,#e5e7eb)] bg-[length:20px_20px] bg-[position:0_0,10px_10px] dark:bg-[linear-gradient(45deg,#374151_25%,transparent_25%,transparent_75%,#374151_75%,#374151),linear-gradient(45deg,#374151_25%,transparent_25%,transparent_75%,#374151_75%,#374151)]">
                 {processedImageUrl ? (
                   <img
                     src={processedImageUrl}
-                    alt="Processed signature"
+                    alt="Assinatura processada"
                     className="w-full h-64 object-contain"
                   />
                 ) : (
                   <div className="w-full h-64 flex items-center justify-center text-gray-400 dark:text-gray-500">
-                    {isProcessing ? 'Processing...' : 'No processed image yet'}
+                    {isProcessing ? 'Processando...' : 'Ainda sem imagem processada'}
                   </div>
                 )}
               </div>
@@ -186,7 +186,7 @@ export default function ImageUploader() {
           {/* Webhook URL Input */}
           <div>
             <label htmlFor="webhookUrl" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Webhook URL (optional)
+              URL do Webhook (opcional)
             </label>
             <input
               id="webhookUrl"
@@ -198,7 +198,7 @@ export default function ImageUploader() {
               disabled={isProcessing}
             />
             <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-              The processed image will be sent to this URL via POST request
+              A imagem processada será enviada para esta URL via requisição POST
             </p>
           </div>
 
@@ -216,7 +216,7 @@ export default function ImageUploader() {
               disabled={isProcessing}
               className="flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:cursor-not-allowed"
             >
-              {isProcessing ? 'Processing...' : 'Remove Background'}
+              {isProcessing ? 'Processando...' : 'Remover Fundo'}
             </button>
             
             {processedImageUrl && (
@@ -224,7 +224,7 @@ export default function ImageUploader() {
                 onClick={handleDownload}
                 className="flex-1 min-w-[200px] bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
               >
-                Download Image
+                Baixar Imagem
               </button>
             )}
             
@@ -233,7 +233,7 @@ export default function ImageUploader() {
               disabled={isProcessing}
               className="bg-gray-500 hover:bg-gray-600 disabled:bg-gray-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:cursor-not-allowed"
             >
-              Reset
+              Redefinir
             </button>
           </div>
         </div>
