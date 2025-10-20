@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const apiKey = process.env.PHOTOROOM_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: 'Photoroom API key not configured' },
+        { error: 'API key not configured' },
         { status: 500 }
       );
     }
@@ -36,9 +36,9 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Photoroom API error:', errorText);
+      console.error('Photo Processing API error:', errorText);
       return NextResponse.json(
-        { error: 'Failed to process image with Photoroom API' },
+        { error: 'Failed to process image with Photo Processing API' },
         { status: response.status }
       );
     }
