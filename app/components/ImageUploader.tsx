@@ -176,7 +176,7 @@ export default function ImageUploader() {
                   />
                 ) : (
                   <div className="w-full h-64 flex items-center justify-center text-gray-400 dark:text-gray-500">
-                    {isProcessing ? 'Processando...' : 'Ainda sem imagem processada'}
+                    {isProcessing ? 'Processando...' : 'Nenhuma imagem processada ainda'}
                   </div>
                 )}
               </div>
